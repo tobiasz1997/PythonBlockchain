@@ -1,6 +1,7 @@
 from utility.hash_util import hash_string_256, hash_block
 from wallet import Wallet
 
+
 class Verification:
     @staticmethod
     def valid_proof(transactions, last_hash, proof):
@@ -34,9 +35,9 @@ class Verification:
         # return is_valid
 
     @staticmethod
-    def verify_transaction(transaction, get_balance, chech_founds=True):
-        if chech_founds:
+    def verify_transaction(transaction, get_balance, check_founds=True):
+        if check_founds:
             sender_balance = get_balance()
             return sender_balance >= transaction.amount and Wallet.verify_transaction(transaction)
         else:
-            Wallet.verify_transaction(transaction)
+            return Wallet.verify_transaction(transaction)
